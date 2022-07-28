@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Alert } from "react-bootstrap";
+import Config from "../scripts/config";
 
 
 class Connection extends Component {
@@ -15,7 +16,7 @@ class Connection extends Component {
 
     init_connection() {
         this.state.ros = new window.ROSLIB.Ros();
-        console.log(this.state.ros);
+        // console.log(this.state.ros);
 
         this.state.ros.on("connection", () => {
             console.log("connection established");
@@ -24,12 +25,32 @@ class Connection extends Component {
 
         this.state.ros.on("close", () => {
             this.setState({ connected: false });
+            setTimeout(() => {
+                try {
+                    console.log(Config.Config.ROSBRIDGE_SERVER_IP)
+                    this.state.ros.connect(
+                        "ws://" +
+                        Config.ROSBRIDGE_SERVER_IP +
+                        ":" +
+                        Config.ROSBRIDGE_SERVER_PORT+
+                        ""
+                    );
+                } catch (error) {
+                    console.log("Connection problem");
+                }
+            }, Config.RECONNECTION_TIMER);
         });
 
-        try{
-            this.state.ros.connect("ws://192.168.0.104:9090");
-        } catch (error) {
-            console.log("Connection problem");
+        try {
+            this.state.ros.connect(
+                "ws://" +
+                Config.ROSBRIDGE_SERVER_IP +
+                ":" +
+                Config.ROSBRIDGE_SERVER_PORT+
+                ""
+            );
+        } catch (e) {
+            console.log(e);
         }
 
     }
