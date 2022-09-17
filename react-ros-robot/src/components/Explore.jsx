@@ -1,17 +1,25 @@
 import React, { Component } from "react";
-import { Joystick } from "react-joystick-component";
 import Config from "../scripts/config"
+import {Container} from "react-bootstrap"
 
-class Teleoperation extends Component {
-    state = { ros : null };
+class Explore extends Component {
+    state = { 
+        ros : null,
+        range_max : 0,
+        ranges : [],
+        range_min : 0,
+    };
     
     constructor() {
         super();
         this.init_connection();
-        this.handleMove = this.handleMove.bind(this);
-        this.handleStop = this.handleStop.bind(this);
     }
     
+    componentDidMount(){
+        this.getSensor();
+        this.moveRobot();
+    }
+
     init_connection() {
         this.state.ros = new window.ROSLIB.Ros();
         
@@ -27,39 +35,31 @@ class Teleoperation extends Component {
         }
     }
 
-    handleMove(event){
-        console.log("hanlde move");
-        var cmd_vel = new window.ROSLIB.Topic({
+    getSensor(){
+        var scan_subscriber = new window.ROSLIB.Topic({
             ros: this.state.ros,
-            name: "/cmd_vel",
-            messageType: "geometry_msgs/Twist",
+            name:"/scan",
+            messageType: "sensor_msgs/LaserScan"
+        })
+        scan_subscriber.subscribe((message)=>{
+            this.setState({ranges:message.ranges});
+            this.setState({range_max:message.range_max});
+            this.setState({range_min:message.range_min});
         });
-        var twist = new window.ROSLIB.Message({
-            linear:{
-                x:event.y / 50,
-                y:0,
-                z:0,
-            },
-            angular: {
-                x:0,
-                y:0,
-                z:-event.x/50,
-            },
-        });
-        cmd_vel.publish(twist);
-
-
     }
-    handleStop(event){
-        console.log("hanlde stop");
+
+    moveRobot(){
+        
         var cmd_vel = new window.ROSLIB.Topic({
             ros: this.state.ros,
             name: "/cmd_vel",
             messageType: "geometry_msgs/Twist",
         });
+        
+        console.log() 
         var twist = new window.ROSLIB.Message({
             linear:{
-                x:0,
+                x:this.state.ranges[250],
                 y:0,
                 z:0,
             },
@@ -69,23 +69,24 @@ class Teleoperation extends Component {
                 z:0,
             },
         });
+
+        
+
         cmd_vel.publish(twist);
     }
 
+
+    
     render() {
         return (
-            <div>
-                <Joystick  
-                    size={150} 
-                    sticky={true} 
-                    baseColor="#EEEEEE" 
-                    stickColor="#BBBBBB" 
-                    move={this.handleMove} 
-                    stop={this.handleStop}
-                ></Joystick>
-            </div>
+        <Container>
+            <h1 className="text-center mt-3">Exploration Map</h1>
+            <h5>Range Max : {this.state.range_max}</h5>
+            <h5>Range Min : {this.state.range_min}</h5>
+            <h5>Ranges : {this.state.ranges[250]}</h5>
+        </Container>
         );
     }
 }
 
-export default Teleoperation;
+export default Explore;

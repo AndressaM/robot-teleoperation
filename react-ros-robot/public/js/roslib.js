@@ -5882,7 +5882,7 @@
         // Prevents anti-aliasing and loosing data
         context.imageSmoothingEnabled = false;
         context.webkitImageSmoothingEnabled = false;
-        context.mozImageSmoothingEnabled = false;
+        // context.mozImageSmoothingEnabled = false;
     
         // Puts the data into the image.
         context.drawImage(image, 0, 0);
