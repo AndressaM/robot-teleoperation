@@ -21,8 +21,8 @@ class Home extends Component {
                     <div class="btn-group-vertical"role="group" >
                         <a class="btn btn-primary"  href="/direct" role="button">Direct Teleoperation</a>
                         <a class="btn btn-primary" href="#" role="button">Shared Teleoperation</a>
-                        <a class="btn btn-primary" href="/billateral" role="button">Bilateral</a>
-                        <a class="btn btn-primary" href="/explore" role="button">Explore</a>
+                        <a class="btn btn-primary" href="/billateral" role="button">Inspection</a>
+                        {/* <a class="btn btn-primary" href="/explore" role="button">Explore</a> */}
                     </div>
                 </section>
                 

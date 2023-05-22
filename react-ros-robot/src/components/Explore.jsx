@@ -17,7 +17,7 @@ class Explore extends Component {
     
     componentDidMount(){
         this.getSensor();
-        this.moveRobot();
+        // this.moveRobot();
     }
 
     init_connection() {
@@ -25,11 +25,11 @@ class Explore extends Component {
         
         try {
             this.state.ros.connect(
-                "ws://" + Config.ROSBRIDGE_SERVER_IP + ":" + Config.ROSBRIDGE_SERVER_PORT + ""
+                "ws://" +Config.ROSBRIDGE_SERVER_IP+ ":" + Config.ROSBRIDGE_SERVER_PORT + ""
             );
         } catch (error) {
             console.log(
-                "ws://" + Config.ROSBRIDGE_SERVER_IP + ":" + Config.ROSBRIDGE_SERVER_PORT + ""
+                "ws://" + Config.ROSBRIDGE_SERVER_IP+ ":" + Config.ROSBRIDGE_SERVER_PORT + ""
             );
             console.log('cannot connect to the WS robot');
         }
@@ -59,7 +59,7 @@ class Explore extends Component {
         console.log() 
         var twist = new window.ROSLIB.Message({
             linear:{
-                x:this.state.ranges[250],
+                x:0,
                 y:0,
                 z:0,
             },
@@ -83,7 +83,7 @@ class Explore extends Component {
             <h1 className="text-center mt-3">Exploration Map</h1>
             <h5>Range Max : {this.state.range_max}</h5>
             <h5>Range Min : {this.state.range_min}</h5>
-            <h5>Ranges : {this.state.ranges[250]}</h5>
+            <h5>Ranges : {this.state.ranges[50]}</h5>
         </Container>
         );
     }

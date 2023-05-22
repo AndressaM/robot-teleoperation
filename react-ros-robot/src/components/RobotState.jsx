@@ -80,11 +80,11 @@ class RobotState extends Component {
 
         try {
             this.state.ros.connect(
-                "ws://" + Config.ROSBRIDGE_SERVER_IP + ":" + Config.ROSBRIDGE_SERVER_PORT + ""
+                "ws://" + Config.ROSBRIDGE_SERVER_IP  + ":" + Config.ROSBRIDGE_SERVER_PORT + ""
             );
         } catch (error) {
             console.log(
-                "ws://" + Config.ROSBRIDGE_SERVER_IP + ":" + Config.ROSBRIDGE_SERVER_PORT + ""
+                "ws://" + Config.ROSBRIDGE_SERVER_IP  + ":" + Config.ROSBRIDGE_SERVER_PORT + ""
             );
             console.log('cannot connect to the WS robot');
         }
@@ -92,9 +92,10 @@ class RobotState extends Component {
 
     render() {
         return (
-            <div class="card bg-secondary m-3">
-                <div class="card-header m-3">Informations</div>
-                <div class="card-body">
+            <div class="card text-white bg-secondary m-3" >
+            <div class="card-header">Information</div>
+            <div class="card-body">
+            <div class="card-body">
                     <Row>
                         <Col>
                             <h4 className="m-3">Position</h4>
@@ -114,6 +115,29 @@ class RobotState extends Component {
                     </Row>
                 </div>
             </div>
+            </div>
+            // <div class="card bg-secondary m-3">
+            //     <div class="card-header m-3">Informations</div>
+            //     <div class="card-body">
+            //         <Row>
+            //             <Col>
+            //                 <h4 className="m-3">Position</h4>
+            //                 <p className="m-3">x: {this.state.x}</p>
+            //                 <p className="m-3">y: {this.state.y}</p>
+            //                 <p className="m-3">Orientation: {this.state.orientation}</p>
+            //             </Col>
+            //             <Col>
+            //                 <h4 className="m-3">Velocity</h4>
+            //                 <p className="m-3">Linear: {this.state.linear}</p>
+            //                 <p className="m-3">Angular: {this.state.angular}</p>
+            //             </Col>
+            //             <Col>
+            //                 <h4 className="m-3">Energy</h4>
+            //                 <p className="m-3">Batery percent: {this.state.battery}</p>
+            //             </Col>
+            //         </Row>
+            //     </div>
+            // </div>
 
 
         );

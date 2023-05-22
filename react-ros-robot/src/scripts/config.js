@@ -1,6 +1,6 @@
-const Config = {
-    ROSBRIDGE_SERVER_IP:"192.168.0.108",
+var Config = {
+    ROSBRIDGE_SERVER_IP:'10.0.0.151',
     ROSBRIDGE_SERVER_PORT:"9090",
-    RECONNECTION_TIMER:3000,
+    RECONNECTION_TIMER:30,
 };
 export default Config;

@@ -61,7 +61,7 @@ NAV2D.Navigator = function (options) {
         },
       },
     });
-    goal.send();
+    // goal.send();
 
     that.currentGoal = goal;
 

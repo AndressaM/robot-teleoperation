@@ -22,15 +22,15 @@ class Direct extends Component {
                         <Connection />
                     </Col>
                 </Row>
-
+                
                 <Row>
                     <Col>
                         <RobotState />
                     </Col>
-                    <Col>
+                    <Col  >
                         <Camera />
                     </Col>
-                    <Col>
+                    <Col className="align-self-center">
                         <Teleoperation />
                     </Col>
                 </Row>

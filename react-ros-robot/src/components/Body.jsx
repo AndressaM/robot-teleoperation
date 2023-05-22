@@ -6,7 +6,7 @@ import About from "./About";
 import Setup from "./Setup";
 import Direct from "./Direct";
 import Explore from "./Explore";
-import Map from "./Map";
+// import Map from "./Map";
 import Billateral from "./Billateral";
 
 class Body extends Component {

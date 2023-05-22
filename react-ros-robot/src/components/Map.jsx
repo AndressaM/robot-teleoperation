@@ -18,7 +18,7 @@ class Map extends Component {
         
         try {
             this.state.ros.connect(
-                "ws://" + Config.ROSBRIDGE_SERVER_IP + ":" + Config.ROSBRIDGE_SERVER_PORT + ""
+                "ws://" + Config.ROSBRIDGE_SERVER_IP+ ":" + Config.ROSBRIDGE_SERVER_PORT + ""
             );
         } catch (error) {
             console.log(
@@ -47,13 +47,16 @@ class Map extends Component {
             severName : "/move_base",
             withOrientation: true,
         });
+
     }
 
     render(){
         return(
-        <div>
-            <div id="nav">Viewer</div>
+        <div class="card text-white bg-secondary m-2" >
+            <div class="card-header">Map 2D</div>
+            <div id="nav"></div>
         </div>);
+
     }
 }
 

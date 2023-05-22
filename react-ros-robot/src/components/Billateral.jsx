@@ -4,6 +4,7 @@ import Connection from "./Connection";
 import RobotState from "./RobotState";
 import { Row, Col, Container, Button } from "react-bootstrap"
 import Map from "./Map";
+import Camera from "./Camera";
 
 class Billateral extends Component {
     state = {
@@ -14,7 +15,7 @@ class Billateral extends Component {
         return (
             <div>
                 <Container>
-                    <h1 className="text-center mt-3">Direct control</h1>
+                    <h1 className="text-center mt-3">Shared Control</h1>
                 </Container>
 
                 <Row>
@@ -27,13 +28,17 @@ class Billateral extends Component {
                     <Col>
                         <RobotState />
                     </Col>
-                    <Col>
-                        <Map/>
-                    </Col>
-                    {/* <Col>
-                        <Teleoperation />
-                    </Col> */}
                 </Row>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Camera/>
+                        </Col>
+                        <Col>
+                            <Map/>
+                        </Col>
+                    </Row>
+                </Container>
 
             </div>
         )
