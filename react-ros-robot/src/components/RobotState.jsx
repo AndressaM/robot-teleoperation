@@ -92,10 +92,10 @@ class RobotState extends Component {
 
     render() {
         return (
-            <div class="card text-white bg-secondary m-3" >
-            <div class="card-header">Information</div>
-            <div class="card-body">
-            <div class="card-body">
+            <div className="card text-white bg-secondary m-3" >
+            <div className="card-header">Information</div>
+            <div className="card-body">
+            <div className="card-body">
                     <Row>
                         <Col>
                             <h4 className="m-3">Position</h4>

@@ -89,14 +89,14 @@ class Teleoperation extends Component {
         else{
             var twist = new window.ROSLIB.Message({
                 linear:{
-                    x:event.y / 5,
+                    x:event.y / 10,
                     y:0,
                     z:0,
                 },
                 angular: {
                     x:0,
                     y:0,
-                    z:-event.x/5,
+                    z:-event.x/2,
                 },
             });
         }
@@ -130,7 +130,7 @@ class Teleoperation extends Component {
 
     render() {
         return (
-            <div class="alig">
+            <div className="alig">
                 <Joystick  
                     size={150} 
                     sticky={true} 

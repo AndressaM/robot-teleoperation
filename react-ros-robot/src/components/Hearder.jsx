@@ -22,7 +22,7 @@ class Header extends Component {
         return (
             <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect >
                 <Container>
-                <Navbar.Brand class="m-3" href="#home">Robot Teleoperation</Navbar.Brand>
+                <Navbar.Brand className="m-3" href="#home">Robot Teleoperation</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

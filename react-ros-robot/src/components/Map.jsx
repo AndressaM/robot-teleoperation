@@ -52,8 +52,8 @@ class Map extends Component {
 
     render(){
         return(
-        <div class="card text-white bg-secondary m-2" >
-            <div class="card-header">Map 2D</div>
+        <div className="card text-white bg-secondary m-2" >
+            <div className="card-header">Map 2D</div>
             <div id="nav"></div>
         </div>);
 
