@@ -6,12 +6,24 @@ Os algoritmos foram desenvolvidos para rodar no ecossistema ROS, especificamente
 
 ## Dependências
 [ROS Noetic](https://www.ros.org/) (Noetic na branch)
-[Python 3.6](https://www.python.org/)
-[Ros turtlebot3](git@github.com:ROBOTIS-GIT/turtlebot3.git)
-[Robot web Tools](https://github.com/RobotWebTools)
 
-## Modos de teleoperação
+[Python 3.6](https://www.python.org/)
+
+[Ros turtlebot3](git@github.com:ROBOTIS-GIT/turtlebot3.git)
+
+[Robot web Tools](https://github.com/RobotWebTools)
+## Aplicação
+`cd react-ros-robot`
+
+Para rodar a aplicação
+
+`npm start`
+
+Abra http://localhost:3000 para vizualização em seu browser
+
+## ROS
 Para utilizar os modos de operação é necessário que o robô está no modo bringup , isto é todos os nós do ros ativos.
+
 ### Setup no PC
 
 Iniciar ros master 
@@ -31,7 +43,7 @@ Iniciando comunicação com websocket e servidor do video
 Para utilização do do controle supervisório é necessário iniciar alguns tópicos do ROS:
 
 
-### Share control
+## Share control
 Exportando modelo do robô :
 
 `export TURTLEBOT3_MODEL=${TB3_MODEL}`
