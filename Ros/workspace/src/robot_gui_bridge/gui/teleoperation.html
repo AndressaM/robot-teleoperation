@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="main.css">
+<!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/eventemitter2@5.0.1/lib/eventemitter2.min.js"></script>
+
+<script type="text/javascript" src="https://static.robotwebtools.org/mjpegcanvasjs/current/mjpegcanvas.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.7.3/nipplejs.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+        <!-- <a href="#"><i class="fa fa-fw fa-arrows"></i> teleoperation</a> -->
+        <div class="dropdown">
+            <button class="dropbtn"> teleoperation
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Hybrid</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+        </div>
+        <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+      </div>
+      <h2>Hybrid teleoperation</h2>
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <p>Connection status: <span id="status"></span></p>
+            <p>Batery : <span id="msg"></span></p>
+          </div>
+        </div>
+        <!-- <div class="column">
+          <div id="mjpeg"></div>
+        </div> -->
+        <div class="column">
+          <div id="zone_joystick" style="position: relative;"></div>
+        </div>
+      </div>
+    </div>
+</body>
+<script src="app.js"></script>
+<noscript>You need to enable JavaScript to view the full site.</noscript>
+</html>

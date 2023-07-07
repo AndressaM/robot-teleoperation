@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="main.css">
+<!-- Load an icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/eventemitter2@5.0.1/lib/eventemitter2.min.js"></script>
+<!-- <script type="text/javascript" type="text/javascript">
+  var ros = new ROSLIB.Ros({
+    url : 'ws://localhost:9090'
+  });
+
+  ros.on('connection', function() {
+    document.getElementById("status").innerHTML = "Connected";
+  });
+
+  ros.on('error', function(error) {
+    document.getElementById("status").innerHTML = "Error";
+  });
+
+  ros.on('close', function() {
+    document.getElementById("status").innerHTML = "Closed";
+  });
+</script> -->
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+        <!-- <a href="#"><i class="fa fa-fw fa-arrows"></i> teleoperation</a> -->
+        <div class="dropdown">
+            <button class="dropbtn"> teleoperation
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="teleoperation.html">Hybrid</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+        </div>
+        <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+        <!-- <a href="#"><i class="fa fa-fw fa-user"></i> Login</a> -->
+      </div>
+    <div class="main">
+        <h2>Simple ROS User Interface teleoperation</h2>
+        <p>Connection status: <span id="status"></span></p>
+        <p>Last /txt_msg received: <span id="msg"></span></p>
+    </div>
+    <div id="mjpeg"></div>
+</body>
+<script src="app.js"></script>
+<noscript>You need to enable JavaScript to view the full site.</noscript>
+</html>
