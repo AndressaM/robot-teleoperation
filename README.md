@@ -24,12 +24,14 @@ Iniciando comunicação com websocket e servidor do video
 
 `rosrun web_video_server web_video_server`
 
-# Setup no robô (Turtlebot 3)
+### Setup no robô (Turtlebot 3)
 
 [Turtlebot3 Manual](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
 
 Para utilização do do controle supervisório é necessário iniciar alguns tópicos do ROS:
 
+
+### Share control
 Exportando modelo do robô :
 
 `export TURTLEBOT3_MODEL=${TB3_MODEL}`
