@@ -36,8 +36,8 @@ class Map extends Component {
     view_map(){
         var viewer = new window.ROS2D.Viewer({
             divID : "nav",
-            width: 640,
-            height: 465,
+            width: 600,
+            height: 500,
         });
 
         var nav = new window.NAV2D.OccupancyGridClientNav({
@@ -47,8 +47,15 @@ class Map extends Component {
             severName : "/move_base",
             withOrientation: true,
         });
+        // var nav = new window.ROS2D.OccupancyGridClient({
+        //     ros: this.state.ros,
+        //     // rootObject: viewer.scene,
+        //     continuous: true,
+        //   });
 
     }
+    
+
 
     render(){
         return(

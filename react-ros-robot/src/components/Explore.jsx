@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Config from "../scripts/config"
 import {Container} from "react-bootstrap"
+import Map from "./Map";
+import Teleoperation from "./Teleoperation";
 
 class Explore extends Component {
     state = { 
@@ -81,9 +83,11 @@ class Explore extends Component {
         return (
         <Container>
             <h1 className="text-center mt-3">Exploration Map</h1>
-            <h5>Range Max : {this.state.range_max}</h5>
+            {/* <h5>Range Max : {this.state.range_max}</h5>
             <h5>Range Min : {this.state.range_min}</h5>
-            <h5>Ranges : {this.state.ranges[50]}</h5>
+            <h5>Ranges : {this.state.ranges[50]}</h5> */}
+            <Map/>
+            {/* <Teleoperation/> */}
         </Container>
         );
     }

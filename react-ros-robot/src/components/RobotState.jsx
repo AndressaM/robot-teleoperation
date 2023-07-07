@@ -97,12 +97,12 @@ class RobotState extends Component {
             <div className="card-body">
             <div className="card-body">
                     <Row>
-                        <Col>
+                        {/* <Col>
                             <h4 className="m-3">Position</h4>
                             <p className="m-3">x: {this.state.x}</p>
                             <p className="m-3">y: {this.state.y}</p>
                             <p className="m-3">Orientation: {this.state.orientation}</p>
-                        </Col>
+                        </Col> */}
                         <Col>
                             <h4 className="m-3">Velocity</h4>
                             <p className="m-3">Linear: {this.state.linear}</p>

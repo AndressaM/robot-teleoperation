@@ -1,21 +1,27 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import { Navbar, Nav, Container, Form, Button } from "react-bootstrap";
-import Config from "../scripts/config";
-
+import Direct from "./Direct";
 
 class Header extends Component {
     
     constructor(props) {
         super(props);
-        this.state = { ip: Config.ROSBRIDGE_SERVER_IP };
+        this.state = { ip:'',
+        inputValue: '',
+    };
+
+    }   
+
+    handleChange = (event) => {
+        this.setState({inputValue: event.target.value});
     }
-
-
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState.ip = event.target[0].value;
-        console.log(event.target[0].value);
-        window.location.reload();
+        this.setState({ip: this.state.inputValue,inputValue:''});
+    }
+
+    updateState = (event) => {
+        this.setState({ip: event.target.value});
     }
 
     render() {
@@ -31,19 +37,12 @@ class Header extends Component {
                         <Nav.Link href="/about">About</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
-                <Form className="d-flex" onSubmit={this.handleSubmit}>
-                <Form.Control
-                    type="search"
-                    placeholder=''
-                    className="me-2"
-                    aria-label="Search"
-                    />
-                    <Button variant="outline-success" type="submit">Connect</Button>
-                </Form>
-                {/* <form class="d-inline-flex">
-                    <input class="form-control me-sm-2" type="text" placeholder="ROS MASTER IP"></input>
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Connect</button>
-                </form> */}
+                
+                <form className="d-flex"onSubmit={this.handleSubmit}>
+                    <input className="form-control me-sm-2" type="text" value={this.state.inputValue} onChange={this.handleChange} placeholder="10.0.0.151" />
+                    <button className="btn btn-secondary my-2 my-sm-0" type="submit">Submit</button>
+                </form>
+                
                 </Container>
             </Navbar>
         );

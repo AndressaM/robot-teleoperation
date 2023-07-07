@@ -7,6 +7,7 @@ class Teleoperation extends Component {
     state = { 
         ros : null , 
         ranges : [],
+        status: "",
     };
     
     constructor() {
@@ -18,7 +19,8 @@ class Teleoperation extends Component {
 
     componentDidMount(){
         this.getSensor();
-        this.isCollision();
+        this.isFrontCollision();
+        this.isBackCollision();
     }
     
     init_connection() {
@@ -51,17 +53,31 @@ class Teleoperation extends Component {
         });
     }
 
-    isCollision(){
-        var media = 0;
-        for (var i = 0; i < 20; i++) {
-            
-            media +=this.state.ranges[i]
-            // more statements
-         }
-         console.log(media/20);
-         return media/20;
+    isFrontCollision(){
+        for(let i = 0; i < 89; i++){
+            if(this.state.ranges[i] < 0.3 && this.state.ranges[i] != 0){
+                return true;
+            }
+        }
+        for(let i = 271; i < 360; i++){
+            if(this.state.ranges[i] < 0.3 && this.state.ranges[i] != 0){
+                return true;
+            }
+        }
+
+        return false;
+  
          
-         
+    }
+    isBackCollision(){
+        console.log(this.state.ranges.length);
+        for(let i = 105; i < 240; i++){
+            if(this.state.ranges[i] < 0.3 && this.state.ranges[i] != 0){
+                return true;
+            }
+        }
+        return false;
+
     }
 
     handleMove(event){
@@ -71,8 +87,11 @@ class Teleoperation extends Component {
             name: "/cmd_vel",
             messageType: "geometry_msgs/Twist",
         });
-        if (this.isCollision() < 0.5 && event.y > 0){
+        this.setState({status:""});
+        if (this.isFrontCollision() && event.y > 0){
             console.log("COLLISION");
+            this.setState({status:"In collision!"});
+            // this.isCollisionStr("Em colisão");
             var twist = new window.ROSLIB.Message({
                 linear:{
                     x:0,
@@ -86,17 +105,36 @@ class Teleoperation extends Component {
                 },
             });
         }
-        else{
+        else if(this.isBackCollision() && event.y < 0){
+            console.log("COLLISION");
+            this.setState({status:"In collision!"});
+            // this.isCollisionStr("Em colisão");
             var twist = new window.ROSLIB.Message({
                 linear:{
-                    x:event.y / 10,
+                    x:0,
                     y:0,
                     z:0,
                 },
                 angular: {
                     x:0,
                     y:0,
-                    z:-event.x/2,
+                    z:0,
+                },
+            });
+        }
+        
+        else{
+            console.log(event.y)
+            var twist = new window.ROSLIB.Message({
+                linear:{
+                    x:event.y / 100,
+                    y:0,
+                    z:0,
+                },
+                angular: {
+                    x:0,
+                    y:0,
+                    z:-event.x / 100 ,
                 },
             });
         }
@@ -131,6 +169,8 @@ class Teleoperation extends Component {
     render() {
         return (
             <div className="alig">
+                <h1 className="text-center mt-3">{this.state.status}</h1>
+
                 <Joystick  
                     size={150} 
                     sticky={true} 
