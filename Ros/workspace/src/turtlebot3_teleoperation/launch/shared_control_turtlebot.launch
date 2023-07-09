@@ -1,0 +1,7 @@
+<launch>
+    
+    <!-- <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/> -->
+    
+    <node pkg="turtlebot3_teleoperation" type="shared_control.py" name="shared_control" output="screen">
+    </node>
+</launch>
