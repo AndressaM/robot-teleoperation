@@ -58,5 +58,5 @@ Iniciando nó para posição do robô
 
 ## Referências
 
-Este código foi criado e adaptado basedo no curso : 
+Este código foi criado e adaptado baseado no curso : 
 https://github.com/aniskoubaa/udemy-rosbridge-course/tree/main
