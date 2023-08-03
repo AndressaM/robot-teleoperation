@@ -2,7 +2,7 @@
 Este repositório abriga a implementação de um framework para teleoperação de robôs móveis que utilizam o ROS (Robot Operating System). O ROS é um sistema operacional flexível e modular amplamente utilizado para desenvolvimento e controle de robôs. Com o framework presente neste repositório, é possível controlar remotamente robôs móveis compatíveis com o ROS, permitindo uma interação intuitiva e eficiente com o ambiente ao redor. O framework fornece funcionalidades para a teleoperação, como controle direto e controle supervisório.
 
 ## Sobre o código
-Os algoritmos foram desenvolvidos para rodar no ecossistema ROS, especificamente na distribuição Noetic rodando no Ubuntu 20.04.5 LTS. As mensagens de comunicação estão aplicadas ao robô Turtlebot 3 modelo waffle-pi
+Os algoritmos foram desenvolvidos para rodar no ecossistema ROS, especificamente na distribuição Noetic rodando no Ubuntu 20.04.5 LTS. As mensagens de comunicação estão aplicadas ao robô Turtlebot 3 modelo waffle-pi.
 
 ## Dependências
 [ROS Noetic](https://www.ros.org/) (Noetic na branch)
@@ -55,3 +55,8 @@ Iniciando nó de navegação
 Iniciando nó para posição do robô
 
 `rosrun riotu_robot_pose_publisher riotu_robot_pose_publisher`
+
+## Referências
+
+Este código foi criado e adaptado basedo no curso : 
+https://github.com/aniskoubaa/udemy-rosbridge-course/tree/main
